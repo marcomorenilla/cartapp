@@ -28,4 +28,9 @@ public class ProductController {
     public List<Product> showAll(){
         return productService.findAll();
     }
+    
+    @GetMapping("/test")
+    public String test(){
+        return "Api funcionando";
+    }
 }
