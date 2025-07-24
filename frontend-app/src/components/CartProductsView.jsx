@@ -1,4 +1,15 @@
-export const CartProductsView = ({ products, handleAddProduct }) => {
+import { useEffect, useState } from "react";
+import {getProducts} from "../services/ProductsService"
+export const CartProductsView = ({ handleAddProduct }) => {
+    
+    // Gestionamos productos como estado
+    const [products, setProducts] = useState([]);
+
+    // Cuando carga la página modificamos los productos recuperados
+    useEffect(() => {
+        setProducts(getProducts())
+    }, [])
+    
     return (
         <>
             {/*Vista card de productos */}
