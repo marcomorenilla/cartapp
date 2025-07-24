@@ -3,10 +3,13 @@ import { getProducts } from "./services/ProductsService"
 import { CartProductsView } from "./components/CartProductsView";
 import { CartTableView } from "./components/CartTableView";
 
+const initialCartList = JSON.parse(sessionStorage.getItem('cart')|| []);
+
 export const CartApp = () => {
 
     const [products, setProducts] = useState([]);
-    const [cartList, setCartList] = useState([]);
+    const [cartList, setCartList] = useState(initialCartList);
+
 
 
     useEffect(() => {
@@ -14,8 +17,8 @@ export const CartApp = () => {
     }, [])
 
     useEffect(() => {
-        console.log(`products fetched:  ${products.length}`)
-    }, [products])
+        sessionStorage.setItem('cart', JSON.stringify(cartList))
+    }, [cartList])
 
     // Añade un producto a la tabla carro de la compra.
     // Ojo sin el return el map devuelve una lista de undefined y rompe la app.
