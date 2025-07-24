@@ -52,7 +52,10 @@ export const CartApp = () => {
 
         {/*Vista tabla de productos del carro*/}
         <section className="container max-w-xl mx-auto mt-5">
-            <CartTableView cartList={cartList} handleRemoveProduct={handleRemoveProduct} />
+            {
+                // Solamente mostramos tabla si hay artículos en la lista
+                cartList.length > 0 && <CartTableView cartList={cartList} handleRemoveProduct={handleRemoveProduct} />
+            }
         </section>
     </>)
 }

@@ -1,6 +1,6 @@
 
 
-export const CartTableRowView = ({product, quantity, handleRemoveProduct}) => {
+export const CartTableRowView = ({product, quantity, handleRemoveProduct, }) => {
     return (
         <>
         {/**Comportamiento de cada fila de la tabla
@@ -12,13 +12,13 @@ export const CartTableRowView = ({product, quantity, handleRemoveProduct}) => {
                     {product.name}
                 </td>
                 <td className="py-4 px-6 text-gray-700">
-                    {product.price}
+                   {product.price.toLocaleString("es-ES", { style: "currency", currency: "EUR" })}
                 </td>
                 <td className="py-4 px-6  text-gray-700">
                     {quantity}
                 </td>
                 <td className="py-4 px-6  text-gray-700">
-                    {product.price * quantity}
+                    {(product.price * quantity).toLocaleString("es-ES", { style: "currency", currency: "EUR" })} 
                 </td>
                 <td className="py-4 px-6">
                     <button type="button"
