@@ -3,7 +3,8 @@ import { ItemsReducer } from "../reducer/ItemsReducer";
 import { ADD_TO_CART, DELETE_FROM_CART, UPDATE_QUANTITY } from "../reducer/ItemsReducerActions";
 
 
-const initialCartList = JSON.parse(sessionStorage.getItem('cart') || []);
+const initialCartList = JSON.parse(sessionStorage.getItem('cart')) || [];
+
 
 export const useCartList = () => {
 

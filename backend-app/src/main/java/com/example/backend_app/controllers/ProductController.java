@@ -8,6 +8,7 @@ import com.example.backend_app.models.Product;
 import com.example.backend_app.services.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class ProductController {
     private ProductService productService;
     
     @GetMapping("/all")
+    @CrossOrigin
     public List<Product> showAll(){
         return productService.findAll();
     }

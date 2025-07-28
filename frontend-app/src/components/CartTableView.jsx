@@ -7,7 +7,7 @@ export const CartTableView = ({ cartList, handleRemoveProduct }) => {
 
         <>
             {/**Vista de la tabla que simula el carro de la compra */}
-            <table className=" bg-white shadow-md rounded-lg overflow-hidden">
+            <table className=" w-full bg-white shadow-md rounded-lg overflow-hidden">
                 <thead className="bg-gray-700 text-white">
                     <tr>
                         <th className="py-3 px-6  font-bold uppercase">
