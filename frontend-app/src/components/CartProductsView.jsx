@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import {getProducts} from "../services/ProductsService"
+import { getProducts } from "../services/ProductsService"
 export const CartProductsView = ({ handleAddProduct }) => {
-    
+
     // Gestionamos productos como estado
     const [products, setProducts] = useState([]);
 
@@ -9,11 +9,11 @@ export const CartProductsView = ({ handleAddProduct }) => {
     useEffect(() => {
         setProducts(getProducts())
     }, [])
-    
+
     return (
         <>
             {/*Vista card de productos */}
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-3 mt-30">
                 {
                     products.map(prod => {
                         return (
@@ -24,9 +24,14 @@ export const CartProductsView = ({ handleAddProduct }) => {
                                 </div>
 
                                 <div className="p-6">
-                                    <p className="text-gray-700 text-base">
-                                        {prod.description}
-                                    </p>
+                                    <div className="grid grid-cols-2">
+                                        <img src={prod.img} alt="Img prod no encontrada" width="500" height="600"/>
+                                        <p className="text-gray-700 text-base">
+                                            {prod.description}
+                                        </p>
+
+                                    </div>
+
                                 </div>
 
                                 <div className="px-6 py-2 border-t border-gray-200 grid grid-cols-2">

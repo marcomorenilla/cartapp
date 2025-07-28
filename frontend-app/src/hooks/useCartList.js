@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { ItemsReducer } from "../reducer/ItemsReducer";
 import { ADD_TO_CART, DELETE_FROM_CART, UPDATE_QUANTITY } from "../reducer/ItemsReducerActions";
 
@@ -13,9 +13,15 @@ export const useCartList = () => {
      * payload en este caso pero puede llamarse libremente
      */
     const [cartList, dispatch] = useReducer(ItemsReducer, initialCartList);
+    const [itemCounter, setItemCounter] = useState();
+
+    const calculateTotalItems =(items)=>{
+        return items.reduce((accum, item)=>accum + item.quantity,0)
+    }
 
     useEffect(() => {
         sessionStorage.setItem('cart', JSON.stringify(cartList))
+        setItemCounter(calculateTotalItems(cartList))
     }, [cartList])
 
     // Añade un producto a la tabla carro de la compra.
@@ -45,6 +51,7 @@ export const useCartList = () => {
   return [
     cartList,
     handleAddProduct,
-    handleRemoveProduct
+    handleRemoveProduct,
+    itemCounter
   ]
 }
