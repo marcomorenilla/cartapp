@@ -14,4 +14,4 @@ FROM openjdk:26-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/*.jar ./java.jar
 EXPOSE 8081
-CMD ["java", "jar", "java.jar"]
+CMD ["java", "-jar", "java.jar"]
